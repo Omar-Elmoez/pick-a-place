@@ -1,5 +1,5 @@
 export async function fetchAvailablePlaces() {
-  const response = await fetch("http://localhost:3000/places");
+  const response = await fetch("https://pick-a-place-8yuf.onrender.com/places");
   const data = await response.json();
 
   if(!response.ok) {
@@ -9,7 +9,7 @@ export async function fetchAvailablePlaces() {
   return data.places;
 }
 export async function fetchUserPlaces() {
-  const response = await fetch("http://localhost:3000/user-places");
+  const response = await fetch("https://pick-a-place-8yuf.onrender.com/user-places");
   const data = await response.json();
 
   if(!response.ok) {
@@ -21,7 +21,7 @@ export async function fetchUserPlaces() {
 
 export async function updateUserPlaces(places) {
 
-  const response = await fetch("http://localhost:3000/user-places", {
+  const response = await fetch("https://pick-a-place-8yuf.onrender.com/user-places", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
