@@ -1,5 +1,7 @@
+import getHostName from "./util/getHostName";
+const hostName = getHostName();
 export async function fetchAvailablePlaces() {
-  const response = await fetch("https://pick-a-place-8yuf.onrender.com/places");
+  const response = await fetch(`${hostName}/places`);
   const data = await response.json();
 
   if(!response.ok) {
@@ -9,7 +11,7 @@ export async function fetchAvailablePlaces() {
   return data.places;
 }
 export async function fetchUserPlaces() {
-  const response = await fetch("https://pick-a-place-8yuf.onrender.com/user-places");
+  const response = await fetch(`${hostName}/user-places`);
   const data = await response.json();
 
   if(!response.ok) {
@@ -21,7 +23,7 @@ export async function fetchUserPlaces() {
 
 export async function updateUserPlaces(places) {
 
-  const response = await fetch("https://pick-a-place-8yuf.onrender.com/user-places", {
+  const response = await fetch(`${hostName}/user-places`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
